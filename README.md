@@ -3,7 +3,9 @@ Developed volatility forecasting models employing traditional statistical techni
 
 ## Motivation
 
-## Methodology
+## EDA Results
+
+## Model Selection and Analysis
 
 ## Future Direction
 
