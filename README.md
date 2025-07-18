@@ -14,7 +14,7 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
 - GARCH
   - A GARCH(1,1) model with Student’s t innovations was refit daily using a 250-day rolling window. Parameters were estimated via maximum likelihood on each window. The (1,1) specification (one lag of squared returns and one lag of conditional variance) captures volatility clustering with minimal complexity, justified by persistent autocorrelation in squared returns.
   - In our observed timeline, GARCH tracks medium-range volatility regimes well, but underreacts in periods of abrupt volatility reversal. 
-- LSTM:
+- Long Short-Term Memory (LSTM)
   - An LSTM model was trained to predict 1-step-ahead volatility using 20-day input sequences of scaled rolling volatility. Model was with MSE loss for stability, while hyperparameters (units, dropout, learning rate) were selected via grid search to minimize QLIKE on the test set.
   - LSTM captures nonlinear temporal dependencies in volatility, which are not accounted for by parametric models like GARCH
   - In our observed timeline, LSTM adapts more flexibly to changes in volatility but exhibits lag in sharp regime transitions, likely due to its smoothing behavior
