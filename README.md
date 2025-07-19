@@ -34,7 +34,7 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
 - Hybrid Model
   - A convex combination of the GARCH, LSTM, and SVR forecasts was used to construct a hybrid volatility forecast
   - Weights were optimized to minimize QLIKE under non-negativity and sum-to-one constraints
-    - Optimized weights: GARCH = 0.0622, LSTM = 0.4666, SVR = 0.4712
+    - Optimized weights: GARCH = 0.0742, LSTM = 0.4558, SVR = 0.4701
   - GARCH’s regime-level structure combined with the nonlinear adaptability of LSTM and SVR
   - In the observed period, the hybrid model balances smoothness and responsiveness, adapting effectively across volatility regimes including the mid-2024 spike
 
