@@ -5,9 +5,9 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
 - Squared log returns show volatility clustering, suggesting conditional heteroskedasticity, motivating models that capture time-varying volatility; explicitly in GARCH, nonparametrically via lagged inputs in LSTM and SVR
 - ADF test confirms that log returns are weakly stationary (p ≈ 0), satisying GARCH assumptions and promoting stable learning for supervised ML models
 - 21-day rolling volatility approximates monthly realized volatility and serves as a smooth, interpretable target for model training and evaluation
-- Raw returns show no autocorrelation, while squared returns exhibit strong persistence, indicating conditional heteroskedasticity and justifying models like GARCH
-- Log returns exhibit heavy tails and non-normality (JB p ≈ 0.05), violating Gaussian error assumptions, motivating the use of fat-tailed innovations in GARCH (e.g. Student's t)
-- Given the heavy tails of log returns and volatility clustering, QLIKE is a more suitable evaluation metric than MSE; it is strictly consistent for conditional variance estimation and was used for hyperparameter selection in LSTM and SVR
+- Raw returns exhibit no autocorrelation, while squared returns exhibit strong persistence, indicating conditional heteroskedasticity and justifying models like GARCH
+- Log returns have heavy tails and exhibit non-normality (JB p ≈ 0.05), violating Gaussian error assumptions, motivating the use of fat-tailed innovations in GARCH (e.g. Student's t)
+- Given the heavy tails of log returns and volatility clustering, QLIKE is a more suitable evaluation metric than MSE; it is strictly consistent for conditional variance estimation and is used for hyperparameter selection in LSTM and SVR
 
 
 ## Model Experimentation
