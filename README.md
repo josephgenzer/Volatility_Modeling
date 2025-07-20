@@ -18,14 +18,14 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
  
 
 - Long Short-Term Memory (LSTM)
-  - An LSTM model was trained to predict 1-step-ahead volatility using 20-day sequences of scaled rolling volatility
+  - Trained to predict 1-step-ahead volatility using 20-day sequences of scaled rolling volatility
   - Hyperparameters were selected via grid search to minimize QLIKE on the test set
   - Architecture: 1 LSTM layer (32 units), 0.2 dropout, dense output layer
   - Trained using MSE loss and the Adam optimizer (learning rate = 0.005) for 20 epochs, batch size = 32
   - In the observed period, LSTM closely tracks volatility during both calm and turbulent periods, including sharp regime shifts in mid-2024
 
 - Support Vector Regression (SVR)
-  - An SVR model was trained to predict 1-step-ahead volatility from 20-day lagged input vectors of scaled rolling volatility
+  - Trained to predict 1-step-ahead volatility from 20-day lagged input vectors of scaled rolling volatility
   - Hyperparameters were selected via grid search to minimize QLIKE on the test set
   - Configuration: RBF kernel with C=10, epsilon=0.001, gamma='auto'
   - Trained using the default epsilon-insensitive loss with scikit-learn’s SVR implementation
