@@ -12,7 +12,7 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
 
 ## Model Experimentation
 - GARCH(1,1)
-  - A GARCH(1,1) model with Student’s t innovations was refit daily using a 250-day rolling window
+  - Fit with Student’s t innovations, was refit daily using a 250-day rolling window
   - Parameters were estimated via maximum likelihood on each window
   - In the observed period, GARCH tracks medium-range volatility regimes well, but underreacts in periods of abrupt volatility reversal
  
@@ -39,9 +39,4 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
   - In the observed period, the hybrid model balances smoothness and responsiveness, adapting effectively across volatility regimes including the mid-2024 spike
 
 ## Results
-- Models were evaluated using QLIKE, MSE, Pearson correlation, and directional accuracy to assess distributional fit, pointwise error, co-movement, and trend alignment
-  - QLIKE: The hybrid model had the best QLIKE, capturing conditional variance most accurately; GARCH struggled with abrupt shifts.
-  - MSE: SVR and the hybrid model minimized pointwise error, showing sharp short-term precision.
-  - Correlation: SVR narrowly outperformed the hybrid in tracking overall volatility dynamics.
-  - Directional Accuracy: SVR and GARCH led in predicting the direction of change.
-- SVR and LSTM outperformed GARCH by capturing nonlinear and sequential structures, while the hybrid model combined their strengths for more regime-adaptive forecast.
+- Models were evaluated using QLIKE, MSE, Pearson correlation, and directional accuracy to assess distributional fit, pointwise error, co-movement, and trend alignment. SVR and LSTM outperformed GARCH by capturing nonlinear and sequential structures, while the hybrid model combined their strengths for more regime-adaptive forecast.
