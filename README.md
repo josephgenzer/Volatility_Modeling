@@ -14,29 +14,27 @@ Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to fo
 - GARCH(1,1)
   - Fit with Student’s t innovations, was refit daily using a 250-day rolling window
   - Parameters were estimated via maximum likelihood on each window
-  - In the observed period, GARCH tracks medium-range volatility regimes well, but underreacts in periods of abrupt volatility reversal
+  - Captures medium-range volatility regimes but underreacts during sharp regime shifts
  
-
 - Long Short-Term Memory (LSTM)
   - Trained to predict 1-step-ahead volatility using 20-day sequences of scaled rolling volatility
-  - Hyperparameters were selected via grid search to minimize QLIKE on the test set
+  - Hyperparameters selected via grid search to minimize QLIKE on the test set
   - Architecture: 1 LSTM layer (32 units), 0.2 dropout, dense output layer
   - Trained using MSE loss and the Adam optimizer (learning rate = 0.005) for 20 epochs, batch size = 32
-  - In the observed period, LSTM closely tracks volatility during both calm and turbulent periods, including sharp regime shifts in mid-2024
+  - Tracks volatility well across calm and turbulent periods, including sharp reversals in mid-2024
 
 - Support Vector Regression (SVR)
   - Trained to predict 1-step-ahead volatility from 20-day lagged input vectors of scaled rolling volatility
   - Hyperparameters were selected via grid search to minimize QLIKE on the test set
   - Configuration: RBF kernel with C=10, epsilon=0.001, gamma='auto'
   - Trained using the default epsilon-insensitive loss with scikit-learn’s SVR implementation
-  - In the observed period, SVR tracks both smooth and volatile phases, including the mid-2024 spike, while producing smoother forecasts than LSTM
+  - Produces smoother forecasts than LSTM while retaining responsiveness during volatility spikes
 
 - Hybrid Model
   - A convex combination of the GARCH, LSTM, and SVR forecasts was used to construct a hybrid volatility forecast
   - Weights were optimized to minimize QLIKE under non-negativity and sum-to-one constraints
-    - Optimized weights: GARCH = 0.0742, LSTM = 0.4558, SVR = 0.4701
-  - GARCH’s regime-level structure combined with the nonlinear adaptability of LSTM and SVR
-  - In the observed period, the hybrid model balances smoothness and responsiveness, adapting effectively across volatility regimes including the mid-2024 spike
+    - Optimized weights: GARCH = 0.07, LSTM = 0.46, SVR = 0.47
+  - Combines GARCH’s regime structure with LSTM/SVR's nonlinear adaptability
+  - Balances smoothness and responsiveness, adapting well to dynamic regimes including the 2024 spike
 
-## Results
-- Models were evaluated using QLIKE, MSE, Pearson correlation, and directional accuracy to assess distributional fit, pointwise error, co-movement, and trend alignment. SVR and LSTM outperformed GARCH by capturing nonlinear and sequential structures, while the hybrid model combined their strengths for more regime-adaptive forecast.
+- Models evaluated on QLIKE, MSE, Pearson correlation, and directional accuracy to capture distributional fit, pointwise error, co-movement, and trend alignment. LSTM and SVR outperformed GARCH by capturing sequential and nonlinear patterns. The hybrid model achieved the best overall performance by combining the complementary strengths of each approach, offering a more robust and adaptive volatility forecast.
