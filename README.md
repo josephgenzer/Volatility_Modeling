@@ -1,5 +1,5 @@
 # Stock Price Volatility Forecasting
-Explored classical statistical and supervised ML models (GARCH, LSTM, SVR) to forecast daily volatility of the S&P 500 (SPY). Combined their outputs via a QLIKE-optimized convex combination, yielding a hybrid model that outperformed all individual models over the 2024–2025 period.
+Explored classical statistical, supervised ML, and deep learning models (GARCH, LSTM, SVR) to forecast daily volatility of the S&P 500 (SPY). Combined their outputs via a QLIKE-optimized convex combination, yielding a hybrid model that outperformed all individual models over the 2024–2025 period.
 
 ## EDA
 - Squared log returns show volatility clustering, suggesting conditional heteroskedasticity, motivating models that capture time-varying volatility; explicitly in GARCH, nonparametrically via lagged inputs in LSTM and SVR
